@@ -1,5 +1,6 @@
-# holman does dotfiles
-
+# rachit does dotfiles
+// note: below is a copy of zholman's dotfiles README. I've made some modifications
+but I'm still too lazy to change the README. Use at your own risk
 ## dotfiles
 
 Your dotfiles are how you personalize your system. These are mine.
