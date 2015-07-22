@@ -1,0 +1,1 @@
+# export VIMRUNTIME=~/.dotfiles/vim
