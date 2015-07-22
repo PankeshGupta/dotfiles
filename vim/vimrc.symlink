@@ -1,4 +1,10 @@
+exe 'set rtp+=' . expand('~/.dotfiles/vim/')
+
+execute pathogen#infect()
 syntax on
+
+set background=dark
+colorscheme molokai
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
