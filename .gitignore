@@ -11,3 +11,4 @@ git/gitconfig.symlin
 # Mac specific
 zsh/.zcompdump
 .DS_Store
+ghc.symlink/ghci_history

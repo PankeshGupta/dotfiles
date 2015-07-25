@@ -11,6 +11,9 @@ filetype indent plugin on
 
 " because I like my tabs the way they fucking are
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+set number
+set incsearch
+set hlsearch
 
 " Ctrl-P setup
 set wildignore+=*/venv/**
@@ -31,3 +34,21 @@ let g:ctrlp_abbrev = {
         \ },
         \ ]
     \ }
+
+" move vertically by visual line
+nnoremap j gj
+nnoremap k gk
+
+" move to beginning/end of line
+nnoremap B ^
+nnoremap E $
+"
+" " $/^ doesn't do anything
+nnoremap $ <nop>
+nnoremap ^ <nop>
+
+" jk is escape
+inoremap jk <esc>
+
+" open ag.vim
+nnoremap <leader>a :Ag
