@@ -9,5 +9,5 @@ atom.symlink/themes
 git/gitconfig.symlin
 
 # Mac specific
-.DS_Storek
 zsh/.zcompdump
+.DS_Store

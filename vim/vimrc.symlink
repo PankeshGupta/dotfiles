@@ -8,3 +8,26 @@ colorscheme molokai
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
+
+" because I like my tabs the way they fucking are
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+
+" Ctrl-P setup
+set wildignore+=*/venv/**
+set wildignore+=*/vendor/**
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+let g:ctrlp_abbrev = {
+    \ 'gmode': 't',
+    \ 'abbrevs': [
+        \ {
+        \ 'pattern': '\(^@.\+\|\\\@<!:.\+\)\@<! ',
+        \ 'expanded': '',
+        \ 'mode': 'pfrz',
+        \ },
+        \ ]
+    \ }
