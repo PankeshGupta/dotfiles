@@ -1,26 +1,19 @@
 # rachit does dotfiles
 // note: below is a copy of zholman's dotfiles README. I've made some modifications
-but I'm still too lazy to change the README. Use at your own risk
+but I'm still too lazy to change the README too much. Use at your own risk
 ## dotfiles
+Dotfiles are a way of organizing your setup and making it consistent. Just as people
+refactor their codebases to be modular and DRY, [Zach Holman](https://github.com/holman)
+modified his dotfiles so they were modular. I forked and made this own version for myself.
 
-Your dotfiles are how you personalize your system. These are mine.
-
-I was a little tired of having long alias files and everything strewn about
-(which is extremely common on other dotfiles projects, too). That led to this
-project being much more topic-centric. I realized I could split a lot of things
-up into the main areas I used (Ruby, git, system libraries, and so on), so I
-structured the project accordingly.
-
-If you're interested in the philosophy behind why projects like these are
-awesome, you might want to [read my post on the
-subject](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
+If you want to read about dotfiles, Zach has some [thoughts](http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/).
 
 ## install
 
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone https://github.com/rachtsingh/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
@@ -36,7 +29,7 @@ defaults, and so on. Tweak this script, and occasionally run `dot` from
 time to time to keep your environment fresh and up-to-date. You can find
 this script in `bin/`.
 
-## topical
+## topical (from @holman)
 
 Everything's built around topic areas. If you're adding a new area to your
 forked dotfiles — say, "Java" — you can simply add a `java` directory and put
@@ -76,14 +69,11 @@ said, I do use this as *my* dotfiles, so there's a good chance I may break
 something if I forget to make a check for a dependency.
 
 If you're brand-new to the project and run into any blockers, please
-[open an issue](https://github.com/holman/dotfiles/issues) on this repository
+[open an issue](https://github.com/rachtsingh/dotfiles/issues) on this repository
 and I'd love to get it fixed for you!
 
 ## thanks
 
-I forked [Ryan Bates](http://github.com/ryanb)' excellent
-[dotfiles](http://github.com/ryanb/dotfiles) for a couple years before the
-weight of my changes and tweaks inspired me to finally roll my own. But Ryan's
-dotfiles were an easy way to get into bash customization, and then to jump ship
-to zsh a bit later. A decent amount of the code in these dotfiles stem or are
-inspired from Ryan's original project.
+Obviously this repo (and much of the readme) is forked from [Zach Holman](http://github.com/holman)
+who has excellent [dotfiles](http://github.com/holman/dotfiles). Many thanks to him.
+I haven't customized much yet.
