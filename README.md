@@ -13,13 +13,14 @@ If you want to read about dotfiles, Zach has some [thoughts](http://zachholman.c
 Run this:
 
 ```sh
-git clone https://github.com/rachtsingh/dotfiles.git ~/.dotfiles
+git clone --recursive https://github.com/rachtsingh/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
 
 This will symlink the appropriate files in `.dotfiles` to your home directory.
-Everything is configured and tweaked within `~/.dotfiles`.
+Everything is configured and tweaked within `~/.dotfiles`. Install is `--recursive`
+because I've set up a number of git submodules for vim (in `vim/bundle`).
 
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.

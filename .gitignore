@@ -12,3 +12,4 @@ git/gitconfig.symlin
 zsh/.zcompdump
 .DS_Store
 ghc.symlink/ghci_history
+zsh/.zcompdump
