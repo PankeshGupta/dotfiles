@@ -22,3 +22,6 @@
 [submodule "vim/bundle/emmet-vim"]
 	path = vim/bundle/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
+[submodule "zsh/.zprezto"]
+	path = zsh/.zprezto
+	url = https://github.com/sorin-ionescu/prezto.git

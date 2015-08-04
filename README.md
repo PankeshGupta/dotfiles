@@ -22,6 +22,10 @@ This will symlink the appropriate files in `.dotfiles` to your home directory.
 Everything is configured and tweaked within `~/.dotfiles`. Install is `--recursive`
 because I've set up a number of git submodules for vim (in `vim/bundle`).
 
+If you're coming from a pure Mac setup, you'll want to set your default shell to be
+zsh, so use `chsh -s /bin/zsh`. Then, start up zsh from your current bash shell 
+via `zsh`. Now you should be good to go!
+
 The main file you'll want to change right off the bat is `zsh/zshrc.symlink`,
 which sets up a few paths that'll be different on your particular machine.
 
@@ -45,7 +49,7 @@ above and see what components may mesh up with you.
 [Fork it](https://github.com/holman/dotfiles/fork), remove what you don't
 use, and build on what you do use.
 
-## components
+## components (from @holman)
 
 There's a few special files in the hierarchy.
 
@@ -62,7 +66,7 @@ There's a few special files in the hierarchy.
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
 
-## bugs
+## bugs (from @holman)
 
 I want this to work for everyone; that means when you clone it down it should
 work for you even though you may not have `rbenv` installed, for example. That
