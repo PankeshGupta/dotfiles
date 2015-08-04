@@ -85,6 +85,6 @@ who has excellent [dotfiles](http://github.com/holman/dotfiles). Many thanks to 
 I haven't customized much yet.
 
 ## endorsements
-### Linus Torvalds-approved!
+### [Linus Torvalds-approved](https://github.com/rachtsingh/dotfiles/commit/6175563d48b91442a9ee27773597fa320d4d6453)!
 > I'm Linus Torvalds and I approve this repository.
 *Linus Torvalds*
