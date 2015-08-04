@@ -1,6 +1,7 @@
 # rachit does dotfiles
 // note: below is a copy of zholman's dotfiles README. I've made some modifications
 but I'm still too lazy to change the README too much. Use at your own risk
+
 ## dotfiles
 Dotfiles are a way of organizing your setup and making it consistent. Just as people
 refactor their codebases to be modular and DRY, [Zach Holman](https://github.com/holman)
@@ -82,3 +83,8 @@ and I'd love to get it fixed for you!
 Obviously this repo (and much of the readme) is forked from [Zach Holman](http://github.com/holman)
 who has excellent [dotfiles](http://github.com/holman/dotfiles). Many thanks to him.
 I haven't customized much yet.
+
+## endorsements
+### Linus Torvalds-approved!
+> I'm Linus Torvalds and I approve this repository.
+*Linus Torvalds*
