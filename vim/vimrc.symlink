@@ -51,4 +51,5 @@ nnoremap ^ <nop>
 inoremap jk <esc>
 
 " open ag.vim
+let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ag

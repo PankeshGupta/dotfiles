@@ -66,6 +66,12 @@ There's a few special files in the hierarchy.
   your `$HOME`. This is so you can keep all of those versioned in your dotfiles
   but still keep those autoloaded files in your home directory. These get
   symlinked in when you run `script/bootstrap`.
+- system/SolarizedBalanced.style: this is a custom stylesheet I created for 
+my MacDown editor, which I actually use a *lot*. It's a fork off SolarizedDark,
+(hence the name) but doesn't pay attention to any style or design principles -
+I just tweaked the colors until I felt satisfied with it. Anyway, you'll have
+to (manually - oh the horror) copy the file over to your `Themes/` folder for
+MacDown. Cheers
 
 ## bugs (from @holman)
 
