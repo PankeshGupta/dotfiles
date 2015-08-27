@@ -1,0 +1,8 @@
+[global]
+device = cpu
+floatX = float32
+
+[warn]
+argmax_pushdown_bug = False
+sum_div_dimshuffle_bug = False
+subtensor_merge_bug = False
