@@ -1,5 +1,9 @@
-# autoload colors && colors
-source /usr/share/zsh/${ZSH_VERSION}/functions/colors 
+# change things because Linux != Mac
+if [[ $(uname) == 'Linux' ]]; then
+	source /usr/share/zsh/functions/Misc/colors
+elif [[ $(uname) == 'Darwin' ]]; then
+	source /usr/share/zsh/${ZSH_VERSION}/functions/colors 
+fi
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
