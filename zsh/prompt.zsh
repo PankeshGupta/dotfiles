@@ -1,4 +1,5 @@
-autoload colors && colors
+# autoload colors && colors
+source /usr/share/zsh/${ZSH_VERSION}/functions/colors 
 # cheers, @ehrenmurdick
 # http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
