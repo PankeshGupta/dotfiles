@@ -14,3 +14,4 @@ zsh/.zcompdump
 ghc.symlink/ghci_history
 zsh/.zcompdump
 bin/subl
+zsh/.zhistory
