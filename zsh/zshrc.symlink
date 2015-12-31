@@ -5,7 +5,7 @@ export ZSH=$HOME/.dotfiles
 export ZDOTDIR=$HOME/.dotfiles/zsh
 
 # your project folder that we can `c [tab]` to
-export PROJECTS=~/Documents/Github
+export PROJECTS=~/projects
 
 # Stash your environment variables in ~/.localrc. This means they'll stay out
 # of your main dotfiles repository (which may be public, like this one), but
@@ -52,3 +52,9 @@ fi
 setopt interactivecomments
 bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
+
+
+. /Users/rachit/torch/install/bin/torch-activate
+
+# OPAM configuration
+. /Users/rachit/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true

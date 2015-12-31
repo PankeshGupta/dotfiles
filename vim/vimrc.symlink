@@ -53,3 +53,7 @@ inoremap jk <esc>
 " open ag.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ag
+
+" Vim for OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
