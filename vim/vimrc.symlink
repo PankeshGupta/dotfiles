@@ -1,16 +1,28 @@
-exe 'set rtp+=' . expand('~/.dotfiles/vim/')
+exe 'set rtp+=' . expand('~/.dotfiles/vim/bundle/Vundle.vim')
 
-execute pathogen#infect()
+call vundle#begin()
 syntax on
 
+" Plugins
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'tpope/vim-sensible'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tomtom/tcomment_vim'
+Plugin 'rking/ag.vim'
+Plugin 'fatih/vim-go'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Alternate'
+
+call vundle#end()
+let g:solarized_termcolors=256
 set background=dark
-colorscheme molokai
+colorscheme solarized 
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-" because I like my tabs the way they fucking are
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+" because I fucking hate tabs now 
+set tabstop=4 expandtab softtabstop=4 shiftwidth=4
 set number
 set incsearch
 set hlsearch
@@ -57,3 +69,12 @@ nnoremap <leader>a :Ag
 " Vim for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" Recommendations 
+set exrc
+set secure
+
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
+set autoindent
+set cindent

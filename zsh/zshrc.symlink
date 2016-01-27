@@ -58,3 +58,5 @@ bindkey "^[[B" history-beginning-search-forward
 
 # OPAM configuration
 . /Users/rachit/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+setxkbmap -option caps:swapescape
