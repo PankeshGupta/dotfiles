@@ -54,9 +54,13 @@ bindkey "^[[A" history-beginning-search-backward
 bindkey "^[[B" history-beginning-search-forward
 
 
-. /Users/rachit/torch/install/bin/torch-activate
+# . /Users/rachit/torch/install/bin/torch-activate
 
 # OPAM configuration
 . /Users/rachit/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
-setxkbmap -option caps:swapescape
+# setxkbmap -option caps:swapescape
+
+# THIS IS BIG 
+# aliasing vim to /usr/local/bin/vi
+alias vim=/usr/local/bin/vi

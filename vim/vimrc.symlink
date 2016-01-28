@@ -5,18 +5,49 @@ syntax on
 
 " Plugins
 Plugin 'VundleVim/Vundle.vim'
+" Sensible defaults from Tim Pope
 Plugin 'tpope/vim-sensible'
+" Fuzzy file searching
 Plugin 'ctrlpvim/ctrlp.vim'
+" Commenting 
 Plugin 'tomtom/tcomment_vim'
+" The Silver Searcher
 Plugin 'rking/ag.vim'
+" Vim + Go
 Plugin 'fatih/vim-go'
+" Nice colors if I want them
 Plugin 'altercation/vim-colors-solarized'
+" Autocompletion - requires recent vim
+Plugin 'Valloric/YouCompleteMe'
+" To switch between .c and .h files quick (like e+u for OCaml)
 Plugin 'Alternate'
+" Airline for cool status bars
+Plugin 'vim-airline/vim-airline'
+" Syntax checker
+Plugin 'scrooloose/syntastic'
+" Sublime-like delimiters
+Plugin 'Raimondi/delimitMate'
+" Base16 colorscheme
+Plugin 'chriskempson/base16-vim'
 
 call vundle#end()
-let g:solarized_termcolors=256
+
+" Colorscheme 
 set background=dark
-colorscheme solarized 
+colorscheme molokai 
+
+" Customization for above plugins
+let g:airline_powerline_fonts = 1
+
+" Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
