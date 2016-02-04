@@ -20,7 +20,7 @@ Plugin 'altercation/vim-colors-solarized'
 " Autocompletion - requires recent vim
 Plugin 'Valloric/YouCompleteMe'
 " To switch between .c and .h files quick (like e+u for OCaml)
-Plugin 'Alternate'
+Plugin 'vim-scripts/a.vim'
 " Airline for cool status bars
 Plugin 'vim-airline/vim-airline'
 " Syntax checker
@@ -29,12 +29,17 @@ Plugin 'scrooloose/syntastic'
 Plugin 'Raimondi/delimitMate'
 " Base16 colorscheme
 Plugin 'chriskempson/base16-vim'
+" NERD tree
+Plugin 'scrooloose/nerdtree'
+" Tabular to align things amazingly
+Plugin 'godlygeek/tabular'
 
 call vundle#end()
 
 " Colorscheme 
 set background=dark
 colorscheme molokai 
+let g:molokai_original = 1
 
 " Customization for above plugins
 let g:airline_powerline_fonts = 1
