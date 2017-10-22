@@ -8,3 +8,6 @@ then
   alias ll="gls -l --color"
   alias la='gls -A --color'
 fi
+
+alias clearcache="sudo dscacheutil -flushcache"
+alias tmux="TERM=screen-256color-bce tmux -2"

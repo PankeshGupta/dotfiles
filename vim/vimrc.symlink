@@ -8,32 +8,26 @@ Plugin 'VundleVim/Vundle.vim'
 " Sensible defaults from Tim Pope
 Plugin 'tpope/vim-sensible'
 " Fuzzy file searching
-Plugin 'ctrlpvim/ctrlp.vim'
+" Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'junegunn/fzf'
 " Commenting 
 Plugin 'tomtom/tcomment_vim'
-" The Silver Searcher
-Plugin 'rking/ag.vim'
-" Vim + Go
-Plugin 'fatih/vim-go'
 " Nice colors if I want them
 Plugin 'altercation/vim-colors-solarized'
-" Autocompletion - requires recent vim
-Plugin 'Valloric/YouCompleteMe'
-" To switch between .c and .h files quick (like e+u for OCaml)
-Plugin 'vim-scripts/a.vim'
+" New fast async lint
+Plugin 'w0rp/ale'
 " Airline for cool status bars
 Plugin 'vim-airline/vim-airline'
-" Syntax checker
-Plugin 'scrooloose/syntastic'
 " Sublime-like delimiters
 Plugin 'Raimondi/delimitMate'
 " Base16 colorscheme
 Plugin 'chriskempson/base16-vim'
-" NERD tree
-Plugin 'scrooloose/nerdtree'
 " Tabular to align things amazingly
 Plugin 'godlygeek/tabular'
-
+Plugin 'lervag/vimtex'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'rhysd/vim-clang-format'
+Plugin 'plasticboy/vim-markdown'
 call vundle#end()
 
 " Colorscheme 
@@ -50,15 +44,16 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_loc_list_height=2
 
 " Wrap gitcommit file types at the appropriate length
 filetype indent plugin on
 
-" because I fucking hate tabs now 
-set tabstop=4 expandtab softtabstop=4 shiftwidth=4
+" because I hate tabs now
+set tabstop=2 expandtab softtabstop=2 shiftwidth=2
 set number
 set incsearch
 set hlsearch
@@ -66,23 +61,24 @@ set hlsearch
 " Ctrl-P setup
 set wildignore+=*/venv/**
 set wildignore+=*/vendor/**
+let g:rg_command = '
+  \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+  \ -g "*.{js,json,php,md,styl,jade,html,config,py,cpp,c,go,hs,rb,conf}"
+  \ -g "!{.git,node_modules,vendor}/*" '
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
-let g:ctrlp_map = '<c-p>'
-let g:ctrlp_cmd = 'CtrlP'
-
-let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
-
-let g:ctrlp_abbrev = {
-    \ 'gmode': 't',
-    \ 'abbrevs': [
-        \ {
-        \ 'pattern': '\(^@.\+\|\\\@<!:.\+\)\@<! ',
-        \ 'expanded': '',
-        \ 'mode': 'pfrz',
-        \ },
-        \ ]
-    \ }
-
+nnoremap <C-p> :FZF<CR>
+" let g:ctrlp_abbrev = {
+"     \ 'gmode': 't',
+"     \ 'abbrevs': [
+"         \ {
+"         \ 'pattern': '\(^@.\+\|\\\@<!:.\+\)\@<! ',
+"         \ 'expanded': '',
+"         \ 'mode': 'pfrz',
+"         \ },
+"         \ ]
+"     \ }
+"
 " move vertically by visual line
 nnoremap j gj
 nnoremap k gk
@@ -98,6 +94,9 @@ nnoremap ^ <nop>
 " jk is escape
 inoremap jk <esc>
 
+" :W is :w
+cnoreabbrev <expr> W ((getcmdtype() is# ':' && getcmdline() is# 'W')?('w'):('W'))
+
 " open ag.vim
 let g:ackprg = 'ag --nogroup --nocolor --column'
 nnoremap <leader>a :Ag
@@ -105,6 +104,24 @@ nnoremap <leader>a :Ag
 " Vim for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" easymotion changes
+let g:EasyMotion_do_mapping = 0 " Disable default mappings
+
+" Jump to anywhere you want with minimal keystrokes, with just one key binding.
+" `s{char}{label}`
+nmap s <Plug>(easymotion-overwin-f)
+" or
+" `s{char}{char}{label}`
+" Need one more keystroke, but on average, it may be more comfortable.
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Turn on case insensitive feature
+let g:EasyMotion_smartcase = 1
+
+" JK motions: Line motions
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
 
 " Recommendations 
 set exrc
@@ -114,3 +131,25 @@ set colorcolumn=110
 highlight ColorColumn ctermbg=darkgray
 set autoindent
 set cindent
+
+set backspace=indent,eol,start
+let g:ycm_confirm_extra_conf = 1
+set term=screen-256color
+
+" C++ autoformatter
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+
+augroup filetype_lua
+  autocmd!
+  autocmd FileType lua setlocal iskeyword+=:
+augroup END
+
+" Markdown folding level
+let g:vim_markdown_folding_level = 4
+let g:vim_markdown_math = 1
+let g:vim_markdown_fenced_language = ['c++=cpp', 'viml=vim', 'bash=sh', 'ini=dosini', 'python=py']
+
+" ALE options
+let g:airline#extensions#ale#enabled = 1
+let g:ale_lint_on_text_changed = 'never'

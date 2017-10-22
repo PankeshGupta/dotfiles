@@ -61,6 +61,46 @@ bindkey "^[[B" history-beginning-search-forward
 
 # setxkbmap -option caps:swapescape
 
+if (( $+commands[tag] )); then
+    tag() { command tag "$@"; source ${TAG_ALIAS_FILE:-/tmp/tag_aliases} 2>/dev/null }
+    alias ag=tag
+fi
+
+export PYTHONSTARTUP=~/.pythonstartup
+
 # THIS IS BIG 
 # aliasing vim to /usr/local/bin/vi
-alias vim=/usr/local/bin/vi
+alias vim=/usr/local/bin/vim
+alias agenda='gcalcli agenda'
+alias ody='ssh -Y -C -o ServerAliveInterval=30 -fN ody'
+alias class='cd ~/Documents/class/current/'
+
+# FZF stuff!!!!
+export FZF_DEFAULT_OPTS='-m'
+fe() {
+    # fe - Open the selected files with the default editor
+    local files=$(fzf --query="$1" --select-1 --exit-0 | sed -e "s/\(.*\)/\'\1\'/")
+    local command="${EDITOR:-vim} -p $files"
+    [ -n "$files" ] && eval $command
+}
+
+fd() {
+    # fd - cd to selected directory
+    local dir
+    dir=$(find ${1:-*} -path '*/\.*' -prune -o -type d -print 2> /dev/null | fzf +m) &&
+    cd "$dir"
+}
+
+fh() {
+    # fh - repeat history
+    eval $( ([ -n "$ZSH_NAME" ] && fc -l 1 || history) | fzf +s --tac | sed 's/ *[0-9]* *//')
+}
+
+fkill() {
+    # fkill - kill process
+    pid=$(ps -ef | sed 1d | fzf -m | awk '{print $2}')
+    if [ "x$pid" != "x" ]
+    then
+        kill -${1:-9} $pid
+    fi
+}
